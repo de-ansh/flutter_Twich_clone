@@ -3,6 +3,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthMethods {
   final _userRef = FirebaseFirestore.instance.collection('users');
-  final _auth = FirebaseAuth.instanceFor(app: app);
-  
+  final _auth = FirebaseAuth.instance;
+
+  signUpUser() async{
+
+  }
+
 }

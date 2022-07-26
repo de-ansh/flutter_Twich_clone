@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:twitch_clone/providers/user_provider.dart';
+import 'package:twitch_clone/screen/HomeScreen.dart';
 import 'package:twitch_clone/screen/SignupScreen.dart';
 import 'package:twitch_clone/screen/loginscreen.dart';
 import 'package:twitch_clone/screen/onboarding_screen.dart';
 import 'package:twitch_clone/utils/colors.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider(create: (_)=> UserProvider(),)
+  ]
+  ,child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -36,6 +42,7 @@ class MyApp extends StatelessWidget {
         OnBoardingScreen.routeName: (context) => const OnBoardingScreen(),
         LoginScreen.routeName: (context) => const LoginScreen(),
         SignUpScreen.routeName: (context) => const SignUpScreen(),
+        HomeScreen.routName:(context) => const HomeScreen(),
       },
       home: const OnBoardingScreen(),
     );
